@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+	<!--Esempio di esclusione di un file dalla compilazione-->
+	<!--<ItemGroup>
+		<Compile Remove="Program.cs" />
+	</ItemGroup>-->
+
+	<!-- Qua troveremo i pacchetti Nuget man mano che li referenzieremo-->
+	
+</Project>
