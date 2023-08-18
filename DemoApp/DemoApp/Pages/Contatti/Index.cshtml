@@ -1,0 +1,25 @@
+﻿@page
+@model DemoApp.Pages.Contatti.IndexModel
+@{
+    ViewData["Title"] = "Elenco Contatti";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Cognome</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var contatto in Model.Contatti)
+        {
+            <tr>
+                <td>@contatto.Cognome</td>
+                <td>@contatto.Nome</td>
+            </tr>
+        }
+    </tbody>
+</table>
