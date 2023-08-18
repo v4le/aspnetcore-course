@@ -1,0 +1,158 @@
+﻿@page
+@model DemoApp.Pages.RazorSyntaxModel
+@{
+    ViewData["Title"] = "Sintassi Razor";
+}
+
+@{
+    @*Singola istruzione*@
+    int contatore = 10;
+}
+
+@{
+    @*Multiple istruzioni*@
+    string dominio = "codiceplastico.com";
+    DateTime today = DateTime.Today;
+    string message = string.Empty;
+}
+
+
+<h1>@ViewData["Title"]</h1>
+
+@* HTML statico *@
+<p>Questo è HTML statico senza espressioni da valutare</p>
+
+<h1>Espressioni implicite</h1>
+
+<p>Questa è la data di oggi: @DateTime.Today.ToString()</p>
+<p>Questa è la data di oggi: @today.ToString()</p>
+
+<p>[Espressione inline]: Questo è il valore della variabile contatore: @contatore</p>
+
+<h1>Espressioni esplicite</h1>
+
+<p>[Corretta]: Questo è il risultato del valore del contatore meno uno: @(contatore - 1)</p>
+
+@*Mancano le parentesi*@
+<p>[Errata]: Questo è il risultato del valore del contatore meno uno: @contatore - 1</p>
+
+<p>
+    [Corretta]: Questa è la data di una settimana fa: @(today - TimeSpan.FromDays(7))
+
+    @*Mancano le parentesi*@
+<p>
+    [Errata]: Questa è la data di una settimana fa: @today - TimeSpan.FromDays(7)
+
+        @*Abbiamo uno spazio e non vogliamo averlo nell'indirizzo*@
+<p>[Errata]: La mia mail è: valeria.leonardi @dominio</p>
+
+        @*Senza espressione esplicita viene considerato come indirizzo di posta elettronica*@
+<p>[Errata]: La mia mail è: valeria.leonardi@dominio</p>
+
+        @*Espressione corretta*@
+<p>[Corretta]: La mia mail è: valeria.leonardi@@dominio</p>
+
+        @*Senza espressione esplicita viene considerato come indirizzo di posta elettronica*@
+<p>[Errata]: Questa è la concatenazione senza spazi della parola Valeria@dominio</p>
+
+<p>[Corretta]: Questa è la concatenazione senza spazi della parola Valeria@(dominio)</p>
+
+        @*
+     Questo è un commento server-side
+     Non viene renderizzato
+     Può essere su più righe
+    *@
+
+<!-- Questo è invece il classico commento HTML che verrà renderizzato -->
+
+
+<h1>Strutture di controllo</h1>
+
+<h2>If / else</h2>
+
+        @if (today.Month == 09)
+        {
+    <p>Questo mese ci sarà il corso</p>
+        }
+        //Nota: nessuna @ prima dell'else
+        else
+        {
+    <p>Questo mese non ci sarà il corso</p>
+        }
+
+<h2>Switch</h2>
+
+        @switch (today.DayOfWeek)
+        {
+            case DayOfWeek.Monday:
+                message = "This is the first weekday.";
+                break;
+            case DayOfWeek.Friday:
+                message = "Tomorrow is weekend!";
+                break;
+            default:
+                message = "Today is " + today.DayOfWeek;
+                break;
+        }
+
+<p>@message</p>
+
+<h2>Switch 2 - mettiamo il paragrafo direttamente dentro il case</h2>
+
+        @switch (today.DayOfWeek)
+        {
+            case DayOfWeek.Monday:
+                <p>This is the first weekday.</p>
+                break;
+            case DayOfWeek.Friday:
+                <p>Tomorrow is weekend!</p>
+                break;
+            default:
+                <p>Today is @today.DayOfWeek</p>
+                break;
+        }
+
+<h1>Cicli for/ foreach</h1>
+
+@for (int i = 1; i <= 5; i++)
+{
+    <p>Iterazione numero @i</p>
+}
+
+@{
+    var colori = new List<string> { "rosso", "verde", "blu", "giallo" };
+}
+
+@foreach (var colore in colori)
+{
+    <p>Colore: @colore</p>
+}
+
+@{
+    var persone = new List<Persona>
+    {
+        new Persona { Nome = "Alice", Cognome = "Rossi", Anni = 28 },
+        new Persona { Nome = "Bob", Cognome = "Verdi", Anni = 35 },
+        new Persona { Nome = "Carla", Cognome = "Bianchi", Anni = 42 }
+    };
+}
+
+<table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Cognome</th>
+            <th>Età</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var persona in persone)
+        {
+            <tr>
+                <td>@persona.Nome</td>
+                <td>@persona.Cognome</td>
+                <td>@persona.Anni</td>
+            </tr>
+        }
+    </tbody>
+</table>
