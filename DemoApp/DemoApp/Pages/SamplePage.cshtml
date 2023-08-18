@@ -1,0 +1,37 @@
+﻿@page
+@model DemoApp.Pages.SamplePageModel
+@{
+    Layout = null;
+}
+
+<html>
+<head>
+    <title>Esempio di pagina Razor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Benvenuto nella mia prima pagina Razor</h1>
+    <p>Oggi è @DateTime.Now.ToString("dddd, dd MMMM yyyy")</p>
+
+    <button id="myButton">Clicca qua!</button>
+
+    <script>
+        document.getElementById("myButton").addEventListener("click", function () {
+            alert("Bottone cliccato");
+        });
+    </script>
+
+    @{
+        string message = "Hello from C#";
+    }
+    <p>@message</p>
+</body>
+</html>
