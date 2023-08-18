@@ -4,7 +4,14 @@
     ViewData["Title"] = "Elenco Contatti";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h2>@ViewData["Title"]</h2>
+
+<form method="post" class="mb-4">
+    <div class="input-group">
+        <input type="text" class="form-control" asp-for="SearchText" placeholder="Cerca per nome o cognome" />
+        <button type="submit" class="btn btn-primary">Cerca</button>
+    </div>
+</form>
 
 <table class="table table-bordered">
     <thead class="thead-dark">
