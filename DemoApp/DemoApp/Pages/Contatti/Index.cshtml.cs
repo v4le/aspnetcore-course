@@ -6,6 +6,8 @@ namespace DemoApp.Pages.Contatti
     public class IndexModel : PageModel
     {
         public IList<Contatto> Contatti { get; set; }
+        public int TotalCount { get; set; }
+        public int FilteredCount { get; set; }
 
         [BindProperty]
         public string SearchText { get; set; }
@@ -13,6 +15,8 @@ namespace DemoApp.Pages.Contatti
         public void OnGet()
         {
             Contatti = ContattiProvider.Contatti;
+
+            TotalCount = FilteredCount = Contatti.Count;
         }
 
         public void OnPost()
@@ -28,6 +32,9 @@ namespace DemoApp.Pages.Contatti
             {
                 Contatti = ContattiProvider.Contatti;
             }
+
+            TotalCount = ContattiProvider.Contatti.Count;
+            FilteredCount = Contatti.Count;
         }
     }
 }
