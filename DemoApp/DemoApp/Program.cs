@@ -5,7 +5,15 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 
-builder.Services.AddTransient<IContattiService, ContattiService>();
+
+if (builder.Environment.IsDevelopment()) // ambiente di sviluppo
+{
+    builder.Services.AddSingleton<IContattiService, InMemoryContattiService>();
+}
+else
+{
+    builder.Services.AddSingleton<IContattiService, ContattiService>();
+}
 
 var app = builder.Build();
 
