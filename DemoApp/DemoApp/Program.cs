@@ -12,7 +12,13 @@ if (builder.Environment.IsDevelopment()) // ambiente di sviluppo
 }
 else
 {
-    builder.Services.AddSingleton<IContattiService, ContattiService>();
+    builder.Services.AddSingleton<IContattiService>(provider =>
+    {
+        var configuration = provider.GetService<IConfiguration>();
+        var connectionString = configuration["ConnectionStrings:MyConnectionString"];
+
+        return new ContattiService(connectionString);
+    });
 }
 
 var app = builder.Build();

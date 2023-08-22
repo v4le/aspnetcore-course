@@ -2,6 +2,11 @@
 {
     public class ContattiService: IContattiService
     {
+        public ContattiService(string connectionString)
+        {
+            
+        }
+
         public IList<Contatto> GetContatti() 
         {
             throw new NotImplementedException();
