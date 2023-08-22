@@ -14,7 +14,7 @@ namespace DemoApp.Pages.Contatti
 
         public void OnGet()
         {
-            Contatti = ContattiProvider.Contatti;
+            Contatti = new ContattiService().GetContatti();
 
             TotalCount = FilteredCount = Contatti.Count;
         }
@@ -23,17 +23,14 @@ namespace DemoApp.Pages.Contatti
         {
             if (!string.IsNullOrEmpty(SearchText))
             {
-                Contatti = ContattiProvider.Contatti.Where(c =>
-                    c.Nome.Contains(SearchText, StringComparison.OrdinalIgnoreCase) ||
-                    c.Cognome.Contains(SearchText, StringComparison.OrdinalIgnoreCase))
-                    .ToList();
+                Contatti = new ContattiService().Search(SearchText);
             }
             else
             {
-                Contatti = ContattiProvider.Contatti;
+                Contatti = new ContattiService().GetContatti();
             }
 
-            TotalCount = ContattiProvider.Contatti.Count;
+            TotalCount = new ContattiService().GetContattiCount();
             FilteredCount = Contatti.Count;
         }
     }

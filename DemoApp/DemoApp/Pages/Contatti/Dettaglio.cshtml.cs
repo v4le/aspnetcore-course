@@ -8,7 +8,7 @@ namespace DemoApp.Pages.Contatti
 
         public void OnGet(int id)
         {
-            Contatto = ContattiProvider.Contatti.Single(c => c.Id == id);
+            Contatto = new ContattiService().GetContatto(id);
         }
     }
 }
