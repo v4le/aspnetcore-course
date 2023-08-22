@@ -4,6 +4,7 @@
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>b42a51fb-6416-49b7-8a78-a6f4c0d10270</UserSecretsId>
   </PropertyGroup>
 
 	<!--Esempio di esclusione di un file dalla compilazione-->
