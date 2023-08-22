@@ -1,6 +1,6 @@
 ﻿namespace DemoApp.Pages.Contatti
 {
-    public class ContattiService
+    public class ContattiService: IContattiService
     {
         public IList<Contatto> Contatti { get; } = new List<Contatto>
         {

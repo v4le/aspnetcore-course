@@ -5,7 +5,7 @@ namespace DemoApp.Pages.Contatti
 {
     public class IndexModel : PageModel
     {
-        private readonly ContattiService contattiService;
+        private readonly IContattiService contattiService;
 
         public IList<Contatto> Contatti { get; set; }
         public int TotalCount { get; set; }
@@ -14,7 +14,7 @@ namespace DemoApp.Pages.Contatti
         [BindProperty]
         public string SearchText { get; set; }
 
-        public IndexModel(ContattiService contattiService)
+        public IndexModel(IContattiService contattiService)
         {
             this.contattiService = contattiService;
         }

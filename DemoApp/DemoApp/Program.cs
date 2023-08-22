@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 
-builder.Services.AddTransient<ContattiService>();
+builder.Services.AddTransient<IContattiService, ContattiService>();
 
 var app = builder.Build();
 

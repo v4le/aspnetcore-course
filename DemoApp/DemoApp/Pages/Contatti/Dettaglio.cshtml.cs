@@ -4,11 +4,11 @@ namespace DemoApp.Pages.Contatti
 {
     public class DettaglioModel : PageModel
     {
-        private readonly ContattiService contattiService;
+        private readonly IContattiService contattiService;
 
         public Contatto Contatto { get; set; }
 
-        public DettaglioModel(ContattiService contattiService) 
+        public DettaglioModel(IContattiService contattiService) 
         {
             this.contattiService = contattiService;
         }
