@@ -5,6 +5,7 @@ namespace DemoApp.Pages
     public class IndexModel : PageModel
     {
         private readonly IConfiguration configuration;
+        public string Config { get; set; }
 
         public IndexModel(IConfiguration configuration)
         {
@@ -13,7 +14,7 @@ namespace DemoApp.Pages
 
         public void OnGet()
         {
-            var config = configuration["ConnectionStrings:MyConnectionString"];
+            Config = configuration["ConnectionStrings:MyConnectionString"];
         }
     }
 }
