@@ -1,7 +1,11 @@
+using DemoApp.Pages.Contatti;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+builder.Services.AddTransient<ContattiService>();
 
 var app = builder.Build();
 

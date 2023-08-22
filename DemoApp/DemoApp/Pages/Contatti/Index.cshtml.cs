@@ -5,6 +5,8 @@ namespace DemoApp.Pages.Contatti
 {
     public class IndexModel : PageModel
     {
+        private readonly ContattiService contattiService;
+
         public IList<Contatto> Contatti { get; set; }
         public int TotalCount { get; set; }
         public int FilteredCount { get; set; }
@@ -12,9 +14,14 @@ namespace DemoApp.Pages.Contatti
         [BindProperty]
         public string SearchText { get; set; }
 
+        public IndexModel(ContattiService contattiService)
+        {
+            this.contattiService = contattiService;
+        }
+
         public void OnGet()
         {
-            Contatti = new ContattiService().GetContatti();
+            Contatti = contattiService.GetContatti();
 
             TotalCount = FilteredCount = Contatti.Count;
         }
@@ -23,14 +30,14 @@ namespace DemoApp.Pages.Contatti
         {
             if (!string.IsNullOrEmpty(SearchText))
             {
-                Contatti = new ContattiService().Search(SearchText);
+                Contatti = contattiService.Search(SearchText);
             }
             else
             {
-                Contatti = new ContattiService().GetContatti();
+                Contatti = contattiService.GetContatti();
             }
 
-            TotalCount = new ContattiService().GetContattiCount();
+            TotalCount = contattiService.GetContattiCount();
             FilteredCount = Contatti.Count;
         }
     }
