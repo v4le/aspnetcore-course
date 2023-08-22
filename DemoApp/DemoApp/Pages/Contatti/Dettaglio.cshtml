@@ -1,0 +1,31 @@
+﻿@page "/Contatti/{id:int}"
+@model DemoApp.Pages.Contatti.DettaglioModel
+@{
+    ViewData["Title"] = "Dettaglio Contatto";
+}
+
+<h2>@ViewData["Title"] con id @Model.Contatto.Id</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        <p>
+            <span class="term">Nome:</span> @Model.Contatto.Nome
+        </p>
+            
+        <p>
+            <span class="term">Cognome:</span> @Model.Contatto.Cognome
+        </p>
+            
+        <p>
+            <span class="term">Data di Nascita:</span> @Model.Contatto.DataNascita
+        </p>
+            
+        <p>
+            <span class="term">Email:</span> @Model.Contatto.Email
+        </p>
+            
+        <p>
+            <span class="term">Telefono:</span> @Model.Contatto.Telefono
+        </p>
+    </div>
+</div>
