@@ -1,4 +1,4 @@
-﻿@page "/Contatti/{id:int}"
+﻿@page "/Contatti/Dettagli/{id:int}"
 @model DemoApp.Pages.Contatti.DettaglioModel
 @{
     ViewData["Title"] = "Dettaglio Contatto";
@@ -17,7 +17,7 @@
         </p>
             
         <p>
-            <span class="term">Data di Nascita:</span> @Model.Contatto.DataNascita
+            <span class="term">Sesso:</span> @Model.Contatto.Sesso
         </p>
             
         <p>
@@ -26,6 +26,17 @@
             
         <p>
             <span class="term">Telefono:</span> @Model.Contatto.Telefono
+        </p>
+
+        <p>
+            <span class="term">Preferito:</span> @if (Model.Contatto.Preferito)
+            {
+                <span>SI</span>
+            }
+            else
+            {
+                <span>NO</span>
+            }
         </p>
     </div>
 </div>

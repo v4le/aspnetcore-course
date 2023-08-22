@@ -23,6 +23,7 @@
             <th>Cognome</th>
             <th>Nome</th>
             <th>Preferito</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -41,10 +42,13 @@
                         <span>NO</span>
                     }
                 </td>
+                <td>
+                    <a asp-page="/Contatti/Dettaglio" asp-route-id="@contatto.Id">Dettagli</a>
+                </td>
             </tr>
         }
     </tbody>
-    </table>
+</table>
 }else
 {
 <h4>Nessun contatto disponibile</h4>    
