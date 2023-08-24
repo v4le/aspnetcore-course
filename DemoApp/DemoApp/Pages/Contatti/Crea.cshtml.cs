@@ -15,9 +15,15 @@ namespace DemoApp.Pages.Contatti
             this.contattiService = contattiService;
         }
 
-        public void OnPost() 
+        public IActionResult OnPost() 
         {
-            contattiService.Add(Contatto);
+            var contatto = contattiService.Add(Contatto);
+
+            //redirect alla pagina di elenco
+            //return RedirectToPage("/Contatti/Index");
+
+            //redirect alla pagina di dettaglio
+            return RedirectToPage("/Contatti/Dettaglio", new { id = contatto.Id });
         }
     }
 }
