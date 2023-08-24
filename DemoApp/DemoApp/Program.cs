@@ -21,6 +21,8 @@ else
     });
 }
 
+builder.Host.UseWindowsService();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
