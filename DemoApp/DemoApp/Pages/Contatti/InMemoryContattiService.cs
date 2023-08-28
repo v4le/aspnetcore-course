@@ -125,5 +125,13 @@
             Contatti.Add(contatto);
             return contatto;
         }
+
+        public Contatto Aggiorna(Contatto contatto)
+        {
+            var contattoDaAggiornare = Contatti.First(c => c.Id == contatto.Id);
+            Contatti.Remove(contattoDaAggiornare);
+            Contatti.Add(contatto);
+            return contatto;
+        }
     }
 }

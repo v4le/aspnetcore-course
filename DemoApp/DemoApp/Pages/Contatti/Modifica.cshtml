@@ -1,0 +1,9 @@
+﻿@page "/Contatti/Modifica"
+@model DemoApp.Pages.Contatti.ModificaModel
+@{
+    ViewData["Title"] = "Modifica contatto";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<partial name="_form" model="@Model.Contatto" />

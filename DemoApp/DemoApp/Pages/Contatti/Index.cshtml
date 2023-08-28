@@ -26,6 +26,7 @@
             <th>Nome</th>
             <th>Preferito</th>
             <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -46,6 +47,9 @@
                 </td>
                 <td>
                     <a asp-page="/Contatti/Dettaglio" asp-route-id="@contatto.Id">Dettagli</a>
+                </td>
+                 <td>
+                    <a asp-page="/Contatti/Modifica" asp-route-id="@contatto.Id">Modifica</a>
                 </td>
             </tr>
         }

@@ -7,5 +7,6 @@
         Contatto GetContatto(int id);
         IList<Contatto> Search(string searchText);
         Contatto Add(Contatto contatto);
+        Contatto Aggiorna(Contatto contatto);
     }
 }

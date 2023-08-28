@@ -31,5 +31,10 @@
         {
             throw new NotImplementedException();
         }
+
+        public Contatto Aggiorna(Contatto contatto)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
