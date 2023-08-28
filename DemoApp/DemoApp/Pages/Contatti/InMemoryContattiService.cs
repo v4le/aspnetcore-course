@@ -118,5 +118,12 @@
         {
             return Contatti.Count();
         }
+
+        public Contatto Add(Contatto contatto)
+        {
+            contatto.Id = Contatti.Max(c => c.Id) + 1;
+            Contatti.Add(contatto);
+            return contatto;
+        }
     }
 }

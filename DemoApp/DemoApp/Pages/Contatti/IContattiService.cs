@@ -6,5 +6,6 @@
         int GetContattiCount();
         Contatto GetContatto(int id);
         IList<Contatto> Search(string searchText);
+        Contatto Add(Contatto contatto);
     }
 }

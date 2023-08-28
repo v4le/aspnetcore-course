@@ -5,8 +5,19 @@ namespace DemoApp.Pages.Contatti
 {
     public class CreaModel : PageModel
     {
-        public void OnGet()
+        private readonly IContattiService contattiService;
+
+        [BindProperty]
+        public Contatto Contatto { get; set; }
+
+        public CreaModel(IContattiService contattiService) 
         {
+            this.contattiService = contattiService;
+        }
+
+        public void OnPost() 
+        {
+            contattiService.Add(Contatto);
         }
     }
 }

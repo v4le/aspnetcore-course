@@ -1,4 +1,45 @@
 ﻿@page "/Contatti/Crea"
 @model DemoApp.Pages.Contatti.CreaModel
 @{
+    ViewData["Title"] = "Creazione nuovo contatto";
 }
+
+<h2>@ViewData["Title"]</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="@Model.Contatto.Nome"></label>
+        <input type="text" asp-for="@Model.Contatto.Nome" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.Contatto.Cognome"></label>
+        <input type="text" asp-for="@Model.Contatto.Cognome" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.Contatto.Sesso">Sesso</label><br />
+        <select asp-for="@Model.Contatto.Sesso" class="form-control">
+            <option value="Maschio">Maschio</option>
+            <option value="Femmina">Femmina</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.Contatto.Preferito">Preferito</label><br />
+        <input type="radio" asp-for="@Model.Contatto.Preferito" value="true" /> SI<br />
+        <input type="radio" asp-for="@Model.Contatto.Preferito" value="false" /> NO
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.Contatto.Email"></label>
+        <input type="email" asp-for="@Model.Contatto.Email" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.Contatto.Telefono"></label>
+        <input type="tel" asp-for="@Model.Contatto.Telefono" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Inserisci</button>
+</form>

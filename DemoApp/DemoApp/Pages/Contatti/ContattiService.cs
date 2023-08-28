@@ -26,5 +26,10 @@
         {
             throw new NotImplementedException();
         }
+
+        public Contatto Add(Contatto contatto)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
