@@ -7,14 +7,19 @@
 <h2>@ViewData["Title"]</h2>
 
 <form method="post">
+
+    <div asp-validation-summary="All"></div>
+
     <div class="form-group">
         <label asp-for="@Model.Contatto.Nome"></label>
         <input type="text" asp-for="@Model.Contatto.Nome" class="form-control" />
+        <span asp-validation-for="@Model.Contatto.Nome" class="text-danger"></span>
     </div>
 
     <div class="form-group">
         <label asp-for="@Model.Contatto.Cognome"></label>
         <input type="text" asp-for="@Model.Contatto.Cognome" class="form-control" />
+        <span asp-validation-for="@Model.Contatto.Cognome" class="text-danger"></span>
     </div>
 
     <div class="form-group">
@@ -23,22 +28,26 @@
             <option value="Maschio">Maschio</option>
             <option value="Femmina">Femmina</option>
         </select>
+        <span asp-validation-for="@Model.Contatto.Sesso" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.Contatto.Email"></label>
+        <input type="email" asp-for="@Model.Contatto.Email" class="form-control" />
+        <span asp-validation-for="@Model.Contatto.Email" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.Contatto.Telefono"></label>
+        <input type="tel" asp-for="@Model.Contatto.Telefono" class="form-control" />
+        <span asp-validation-for="@Model.Contatto.Telefono" class="text-danger"></span>
     </div>
 
     <div class="form-group">
         <label asp-for="@Model.Contatto.Preferito">Preferito</label><br />
         <input type="radio" asp-for="@Model.Contatto.Preferito" value="true" /> SI<br />
         <input type="radio" asp-for="@Model.Contatto.Preferito" value="false" /> NO
-    </div>
-
-    <div class="form-group">
-        <label asp-for="@Model.Contatto.Email"></label>
-        <input type="email" asp-for="@Model.Contatto.Email" class="form-control" />
-    </div>
-
-    <div class="form-group">
-        <label asp-for="@Model.Contatto.Telefono"></label>
-        <input type="tel" asp-for="@Model.Contatto.Telefono" class="form-control" />
+        <span asp-validation-for="@Model.Contatto.Preferito" class="text-danger"></span>
     </div>
 
     <button type="submit" class="btn btn-primary">Inserisci</button>

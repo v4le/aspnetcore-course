@@ -17,13 +17,16 @@ namespace DemoApp.Pages.Contatti
 
         public IActionResult OnPost() 
         {
-            var contatto = contattiService.Add(Contatto);
+            if (ModelState.IsValid) 
+            {
+                var contatto = contattiService.Add(Contatto);
+                //redirect alla pagina di elenco
+                //return RedirectToPage("/Contatti/Index");
 
-            //redirect alla pagina di elenco
-            //return RedirectToPage("/Contatti/Index");
-
-            //redirect alla pagina di dettaglio
-            return RedirectToPage("/Contatti/Dettaglio", new { id = contatto.Id });
+                //redirect alla pagina di dettaglio
+                return RedirectToPage("/Contatti/Dettaglio", new { id = contatto.Id });
+            }
+            return Page();            
         }
     }
 }
