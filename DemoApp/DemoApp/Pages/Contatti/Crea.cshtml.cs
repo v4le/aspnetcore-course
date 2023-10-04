@@ -15,6 +15,11 @@ namespace DemoApp.Pages.Contatti
             this.contattiService = contattiService;
         }
 
+        public void OnGet() 
+        {
+            Contatto = new Contatto();
+        }
+
         public IActionResult OnPost() 
         {
             if (ModelState.IsValid) 
