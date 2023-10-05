@@ -7,19 +7,19 @@
     <input type="hidden" asp-for="@Model.Id" />
 
     <div class="form-group">
-        <label asp-for="@Model.Nome"></label>
+        <label>Nome</label>
         <input type="text" asp-for="@Model.Nome" class="form-control" />
         <span asp-validation-for="@Model.Nome" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        <label asp-for="@Model.Cognome"></label>
+        <label>Cognome</label>
         <input type="text" asp-for="@Model.Cognome" class="form-control" />
         <span asp-validation-for="@Model.Cognome" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        <label asp-for="@Model.Sesso">Sesso</label><br />
+        <label>Sesso</label>
         <select asp-for="@Model.Sesso" class="form-control">
             <option value="Maschio">Maschio</option>
             <option value="Femmina">Femmina</option>
@@ -28,23 +28,30 @@
     </div>
 
     <div class="form-group">
-        <label asp-for="@Model.Email"></label>
+        <label>Email</label>
         <input type="email" asp-for="@Model.Email" class="form-control" />
         <span asp-validation-for="@Model.Email" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        <label asp-for="@Model.Telefono"></label>
+        <label>Telefono</label>
         <input type="tel" asp-for="@Model.Telefono" class="form-control" />
         <span asp-validation-for="@Model.Telefono" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        <label asp-for="@Model.Preferito">Preferito</label><br />
+        <label>Preferito</label>
         <input type="radio" asp-for="@Model.Preferito" value="true" /> SI<br />
         <input type="radio" asp-for="@Model.Preferito" value="false" /> NO
         <span asp-validation-for="@Model.Preferito" class="text-danger"></span>
     </div>
 
-    <button type="submit" class="btn btn-primary">Inserisci</button>
+    @if (Model.Id > 0)
+    {
+        <button type="submit" class="btn btn-primary">Aggiorna</button>
+    }
+    else
+    {
+        <button type="submit" class="btn btn-primary">Inserisci</button>
+    }
 </form>
